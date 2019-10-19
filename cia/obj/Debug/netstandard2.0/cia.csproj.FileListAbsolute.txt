@@ -1,0 +1,17 @@
+/Users/rpm/Projects/cia/cia/bin/Debug/netstandard2.0/cia.deps.json
+/Users/rpm/Projects/cia/cia/bin/Debug/netstandard2.0/cia.dll
+/Users/rpm/Projects/cia/cia/bin/Debug/netstandard2.0/ref/cia.dll
+/Users/rpm/Projects/cia/cia/bin/Debug/netstandard2.0/cia.pdb
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/cia.csprojAssemblyReference.cache
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/App.xaml.g.cs
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/Views/AboutPage.xaml.g.cs
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/Views/ItemDetailPage.xaml.g.cs
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/Views/ItemsPage.xaml.g.cs
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/Views/MainPage.xaml.g.cs
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/Views/NewItemPage.xaml.g.cs
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/cia.AssemblyInfoInputs.cache
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/cia.AssemblyInfo.cs
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/XamlC.stamp
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/cia.dll
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/ref/cia.dll
+/Users/rpm/Projects/cia/cia/obj/Debug/netstandard2.0/cia.pdb
