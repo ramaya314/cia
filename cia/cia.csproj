@@ -7,10 +7,12 @@
 
   <ItemGroup>
     <None Remove="carbon.db" />
+    <None Remove="receipt.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="carbon.db" />
+    <EmbeddedResource Include="receipt.png" />
   </ItemGroup>
 
   <ItemGroup>
