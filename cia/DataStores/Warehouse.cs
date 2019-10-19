@@ -15,9 +15,9 @@ namespace cia.DataStores
 {
     public static class Warehouse
     {
-        public static IDataStore<ShoppingCartItem> ShoppingCartItems => new ShoppingCartItemDataStore();
-        public static IDataStore<ShoppingCart> ShoppingCarts => new ShoppingCartDataStore();
-        public static IDataStore<Item> Items => new ItemDataStore();
+        public static ShoppingCartItemDataStore ShoppingCartItems => new ShoppingCartItemDataStore();
+        public static ShoppingCartDataStore ShoppingCarts => new ShoppingCartDataStore();
+        public static ItemDataStore Items => new ItemDataStore();
 
     }
 }

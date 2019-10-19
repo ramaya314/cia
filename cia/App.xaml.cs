@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -7,6 +8,7 @@ using cia.Views;
 using System.Threading.Tasks;
 
 using cia.Utils;
+using cia.DataStores;
 using PCLStorage;
 
 namespace cia
@@ -41,6 +43,19 @@ namespace cia
             var file = await EmbeddedResourceManager.CopyFileToLocation("receipt.png", path, true);
             await dummy.GetItemsFromImage(path);
         }
+
+        private async Task LoadTestSummaryPage()
+        {
+            var firstShoppingCart = (await Warehouse.ShoppingCarts.GetAllAsync()).FirstOrDefault();
+            var dummy = new SummaryPage(firstShoppingCart, await firstShoppingCart.GetAllCartItems());
+            MainPage = new NavigationPage(dummy);
+        }
+
+        private async Task LoadTestPicturePage()
+        {
+
+        }
+        
 
         protected override void OnSleep()
         {

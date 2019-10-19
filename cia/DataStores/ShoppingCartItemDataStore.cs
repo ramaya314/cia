@@ -9,6 +9,7 @@ namespace cia.DataStores
     public class ShoppingCartItemDataStore : BaseDataStore<ShoppingCartItem>
     {
 
+        #region base overrides
         public override async Task<IEnumerable<ShoppingCartItem>> GetAllAsync()
         {
             return await db.Table<ShoppingCartItem>().ToListAsync();
@@ -23,5 +24,15 @@ namespace cia.DataStores
         {
             return await db.Table<ShoppingCartItem>().Where(i => i.Equals(item)).FirstOrDefaultAsync();
         }
+        #endregion baseoverrides
+
+        public async Task<IEnumerable<ShoppingCartItem>> GetAllItemsByCart(ShoppingCart cart)
+        {
+            if (cart == null)
+                return new List<ShoppingCartItem>();
+
+            return await db.Table<ShoppingCartItem>().Where(sci => sci.ShoppingCartId == cart.Id).ToListAsync();
+        }
+
     }
 }
