@@ -301,6 +301,10 @@ namespace cia.Utils
             if (strDestinationFilePath.StartsWith(FileSystem.Current.LocalStorage.Path, StringComparison.CurrentCulture))
             {
                 strDestinationFilePath = strDestinationFilePath.Replace(FileSystem.Current.LocalStorage.Path, string.Empty);
+                if(strDestinationFilePath.StartsWith("/"))
+                {
+                    strDestinationFilePath = strDestinationFilePath.Substring(1);
+                }
             }
 
             //Android will fail file creation if the folder is not already present

@@ -22,7 +22,7 @@ namespace cia
             // Handle when your app starts
             await DataAccess.InitDatabase();
             var instance = DataAccessAsync.Instance;
-            var test = "";
+            Console.WriteLine("DB PAth: " + instance.DatabasePath);
         }
 
         protected override void OnSleep()
