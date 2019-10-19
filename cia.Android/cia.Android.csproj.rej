@@ -1,0 +1,9 @@
+diff a/cia.Android/cia.Android.csproj b/cia.Android/cia.Android.csproj	(rejected hunks)
+@@ -31,7 +31,6 @@
+     <ErrorReport>prompt</ErrorReport>
+     <WarningLevel>4</WarningLevel>
+     <AndroidLinkMode>None</AndroidLinkMode>
+-    <EnableLLVM>false</EnableLLVM>
+   </PropertyGroup>
+   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+     <DebugSymbols>true</DebugSymbols>

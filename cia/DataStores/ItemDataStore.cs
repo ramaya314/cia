@@ -10,15 +10,21 @@ namespace cia.DataStores
     {
         public ItemDataStore()
         {
-            //Store = new List<Item>()
-            //{
-            //    new Item { Id = 1, Name = "First item", Description="This is an item description." },
-            //    new Item { Id = 2, Name = "Second item", Description="This is an item description." },
-            //    new Item { Id = 3, Name = "Third item", Description="This is an item description." },
-            //    new Item { Id = 4, Name = "Fourth item", Description="This is an item description." },
-            //    new Item { Id = 5, Name = "Fifth item", Description="This is an item description." },
-            //    new Item { Id = 6, Name = "Sixth item", Description="This is an item description." }
-            //};
+        }
+
+        public override async Task<IEnumerable<Item>> GetAllAsync()
+        {
+            return await db.Table<Item>().ToListAsync();
+        }
+
+        public override async Task<Item> GetAsync(int id)
+        {
+            return await db.Table<Item>().Where(item => item.Id == id).FirstOrDefaultAsync();
+        }
+
+        public override async Task<Item> GetMatchingItem(Item item)
+        {
+            return await db.Table<Item>().Where(i => i.Equals(item)).FirstOrDefaultAsync();
         }
     }
 }

@@ -17,9 +17,12 @@ namespace cia
             MainPage = new MainPage();
         }
 
-        protected override void OnStart()
+        protected override async void OnStart()
         {
             // Handle when your app starts
+            await DataAccess.InitDatabase();
+            var instance = DataAccessAsync.Instance;
+            var test = "";
         }
 
         protected override void OnSleep()

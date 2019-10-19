@@ -5,6 +5,10 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
+using cia.Abstractions;
+using cia.Utils;
+using Conds = cia.Conditionals.Conditionals;
+
 namespace cia.iOS
 {
     // The UIApplicationDelegate for the application. This class is responsible for launching the 
@@ -23,6 +27,9 @@ namespace cia.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
+
+            EmbeddedResourceManager.conditionals = new Conds();
+
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
