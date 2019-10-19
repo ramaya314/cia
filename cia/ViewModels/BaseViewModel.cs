@@ -6,7 +6,7 @@ using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 
 using cia.Models;
-using cia.Services;
+using cia.DataStores;
 
 namespace cia.ViewModels
 {

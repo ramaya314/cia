@@ -8,16 +8,14 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using cia.Models;
-using cia.Services;
+using cia.DataStores;
 
 namespace cia.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class AnalyzingPage : ContentPage
 	{
-
-        public IDataStore<ShoppingCartItem> ShoppingCartItemDataStore => DependencyService.Get<IDataStore<ShoppingCartItem>>();
-
+        
         private ShoppingCart _cart;
 
 		public AnalyzingPage (ShoppingCart cart, ImageSource receiptImageSource)
@@ -39,7 +37,7 @@ namespace cia.Views
             var cartItems = await GetItemsFromImage(_cart.ReceiptImageFilePath);
             foreach(var cartItem in cartItems)
             {
-                await ShoppingCartItemDataStore.AddItemAsync(cartItem);
+                await Warehouse.ShoppingCartItems.AddAsync(cartItem);
             }
 
             var summaryPage = new SummaryPage(_cart, cartItems);

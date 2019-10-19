@@ -28,7 +28,7 @@ namespace cia.Views
 			InitializeComponent ();
 		}
 
-        private async Task OnCameraButtonClicked(object sender, EventArgs e)
+        private async void OnCameraButtonClicked(object sender, EventArgs e)
         {
             if(!(await RequestPermissions()))
             {
@@ -45,7 +45,6 @@ namespace cia.Views
 
             ShoppingCart cart = new ShoppingCart
             {
-                Id = 666, //TODO: Get this dynamically from the database by increasing the count by one
                 DateCreated = DateTime.Now.ToFileTimeUtc()
             };
             

@@ -9,10 +9,8 @@ using cia.Constants;
 
 namespace cia.Models
 {
-    public class ShoppingCart
+    public class ShoppingCart : BaseModel
     {
-        public int Id { get; set; }
-
         public string Name { get; set; }
 
         public long DateCreated { get; set; }

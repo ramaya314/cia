@@ -1,7 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using cia.Services;
+using cia.DataStores;
 using cia.Views;
 
 namespace cia
@@ -13,7 +13,7 @@ namespace cia
         {
             InitializeComponent();
 
-            DependencyService.Register<MockDataStore>();
+            DependencyService.Register<ItemDataStore>();
             MainPage = new MainPage();
         }
 
