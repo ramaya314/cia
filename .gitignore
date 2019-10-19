@@ -303,3 +303,5 @@ Thumbs.db
 /src/wwwroot/js/cornerstonejpeg.min.js
 /src/wwwroot/js/cornerstonejpeg.annotate.min.js
 /src/wwwroot/js
+
+*.designer.cs

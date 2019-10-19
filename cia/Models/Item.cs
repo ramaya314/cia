@@ -4,8 +4,13 @@ namespace cia.Models
 {
     public class Item
     {
-        public string Id { get; set; }
-        public string Text { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
+        
+
+        public float Co2 { get; set; }
+
+        public float Price { get; set; }
     }
 }

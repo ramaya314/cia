@@ -14,12 +14,12 @@ namespace cia.Services
         {
             items = new List<Item>()
             {
-                new Item { Id = Guid.NewGuid().ToString(), Text = "First item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Second item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Third item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fourth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Fifth item", Description="This is an item description." },
-                new Item { Id = Guid.NewGuid().ToString(), Text = "Sixth item", Description="This is an item description." }
+                new Item { Id = 1, Name = "First item", Description="This is an item description." },
+                new Item { Id = 2, Name = "Second item", Description="This is an item description." },
+                new Item { Id = 3, Name = "Third item", Description="This is an item description." },
+                new Item { Id = 4, Name = "Fourth item", Description="This is an item description." },
+                new Item { Id = 5, Name = "Fifth item", Description="This is an item description." },
+                new Item { Id = 6, Name = "Sixth item", Description="This is an item description." }
             };
         }
 
@@ -39,7 +39,7 @@ namespace cia.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<bool> DeleteItemAsync(string id)
+        public async Task<bool> DeleteItemAsync(int id)
         {
             var oldItem = items.Where((Item arg) => arg.Id == id).FirstOrDefault();
             items.Remove(oldItem);
@@ -47,7 +47,7 @@ namespace cia.Services
             return await Task.FromResult(true);
         }
 
-        public async Task<Item> GetItemAsync(string id)
+        public async Task<Item> GetItemAsync(int id)
         {
             return await Task.FromResult(items.FirstOrDefault(s => s.Id == id));
         }
