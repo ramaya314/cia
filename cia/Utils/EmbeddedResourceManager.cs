@@ -308,8 +308,14 @@ namespace cia.Utils
             }
 
             //Android will fail file creation if the folder is not already present
-            string strContaintingFolder = strDestinationFilePath.Substring(0, strDestinationFilePath.LastIndexOf("/", StringComparison.CurrentCulture));
-            await FileSystem.Current.LocalStorage.CreateFolderAsync(strContaintingFolder, CreationCollisionOption.OpenIfExists);
+            string strContaintingFolder = string.Empty;
+            if (string.IsNullOrEmpty(strDestinationFilePath) || !strDestinationFilePath.Contains("/"))
+                strContaintingFolder = strDestinationFilePath;
+            else
+            {
+                strContaintingFolder = strDestinationFilePath.Substring(0, strDestinationFilePath.LastIndexOf("/", StringComparison.CurrentCulture));
+                await FileSystem.Current.LocalStorage.CreateFolderAsync(strContaintingFolder, CreationCollisionOption.OpenIfExists);
+            }
 
             IFile file = await FileSystem.Current.LocalStorage.CreateFileAsync(strDestinationFilePath, CreationCollisionOption.ReplaceExisting);
             try

@@ -52,7 +52,7 @@ namespace cia.Views
         /// </summary>
         /// <param name="imagePath"></param>
         /// <returns></returns>
-        private async Task<List<ShoppingCartItem>> GetItemsFromImage(string imagePath)
+        public async Task<List<ShoppingCartItem>> GetItemsFromImage(string imagePath)
         {
             List<ShoppingCartItem> cartItems = new List<ShoppingCartItem>();
 
