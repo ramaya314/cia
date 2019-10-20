@@ -49,6 +49,7 @@ namespace cia.Views
 
         protected override async void OnAppearing()
         {
+
             var carts = await Warehouse.ShoppingCarts.GetAllAsync();
             var models = new List<CartViewModel>();
             foreach(var cart in carts)
@@ -62,7 +63,7 @@ namespace cia.Views
 
         async Task OnAddClicked()
         {
-            if(!(await RequestPermissions()))
+            if (!(await RequestPermissions()))
             {
                 await DisplayAlert("Permission Denied", "Camera permissions are needed to continue.", "Ok");
                 return;
@@ -155,10 +156,20 @@ namespace cia.Views
 
         private async void MainListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
+            await Task.Yield();
+            await Task.Delay(100);
             var modelSender = (CartViewModel)((ListView)sender).SelectedItem;
             var page = new SummaryPage(modelSender.Cart, modelSender.ItemModels);
-            await Navigation.PushAsync(new DreamNavigationPage(page));
-            ((ListView)sender).SelectedItem = null;
+            //((ListView)sender).SelectedItem = null;
+            await Task.Yield();
+            await Task.Delay(200);
+            try
+            {
+                await Navigation.PushAsync(page);
+            } catch(Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
         
     }

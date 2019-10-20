@@ -4,8 +4,8 @@
                          xmlns:ViewCells="clr-namespace:cia.Views.Cells"
                          xmlns:views="clr-namespace:cia.Views"
                          x:Class="cia.Views.SummaryPage">
-    <!--<ContentView ControlTemplate="{StaticResource BackgroundImagePageTemplate}">-->
-    <StackLayout>
+    <ContentView ControlTemplate="{StaticResource BackgroundImagePageTemplate}">
+
         <Grid BackgroundColor="Transparent"
                     VerticalOptions="FillAndExpand" 
                     HorizontalOptions="FillAndExpand">
@@ -17,7 +17,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <!--<views:TransparentListView x:Name="MainListview" 
+            <views:TransparentListView x:Name="MainListview" 
                         HasUnevenRows="true" 
                         ItemsSource="{Binding CellModelList}"
                         ItemSelected="MainListview_ItemSelected"
@@ -30,9 +30,8 @@
                         <ViewCells:SummaryViewCell OnBetterAlternativeButtonClicked="SummaryViewCell_OnBetterAlternativeButtonClicked" />
                     </DataTemplate>
                 </views:TransparentListView.ItemTemplate>
-            </views:TransparentListView>-->
+            </views:TransparentListView>
 
         </Grid>
-    <!--</ContentView>-->
-        </StackLayout>
+    </ContentView>
 </views:BackgroundImagePage>
