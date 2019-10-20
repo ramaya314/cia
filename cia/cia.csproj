@@ -6,6 +6,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="DataContracts\**" />
+    <EmbeddedResource Remove="DataContracts\**" />
+    <None Remove="DataContracts\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="carbon.db" />
     <None Remove="receipt.png" />
   </ItemGroup>
@@ -34,9 +40,6 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\AnalyzingPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\Cells\SummaryViewCell.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\PicturePage.xaml">
