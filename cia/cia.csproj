@@ -43,8 +43,6 @@
     <EmbeddedResource Update="Views\AnalyzingPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-<<<<<<< HEAD
-=======
     <EmbeddedResource Update="Views\BackgroundImagePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
@@ -63,7 +61,6 @@
     <EmbeddedResource Update="Views\LoadingPopUpPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
->>>>>>> 2fca2e56f534325c01cc67820597917847fc3afb
     <EmbeddedResource Update="Views\PicturePage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
