@@ -3,9 +3,9 @@
                          xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                          xmlns:ViewCells="clr-namespace:cia.Views.Cells"
                          xmlns:views="clr-namespace:cia.Views"
-                         x:Class="cia.Views.SummaryPage">
-    <!--<ContentView ControlTemplate="{StaticResource BackgroundImagePageTemplate}">-->
-    <StackLayout>
+                         x:Class="cia.Views.CartsPage">
+    <ContentView ControlTemplate="{StaticResource BackgroundImagePageTemplate}">
+
         <Grid BackgroundColor="Transparent"
                     VerticalOptions="FillAndExpand" 
                     HorizontalOptions="FillAndExpand">
@@ -17,7 +17,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <!--<views:TransparentListView x:Name="MainListview" 
+            <views:TransparentListView x:Name="MainListview" 
                         HasUnevenRows="true" 
                         ItemsSource="{Binding CellModelList}"
                         ItemSelected="MainListview_ItemSelected"
@@ -27,12 +27,11 @@
 
                 <views:TransparentListView.ItemTemplate>
                     <DataTemplate>
-                        <ViewCells:SummaryViewCell OnBetterAlternativeButtonClicked="SummaryViewCell_OnBetterAlternativeButtonClicked" />
+                        <ViewCells:CartViewCell />
                     </DataTemplate>
                 </views:TransparentListView.ItemTemplate>
-            </views:TransparentListView>-->
+            </views:TransparentListView>
 
         </Grid>
-    <!--</ContentView>-->
-        </StackLayout>
+    </ContentView>
 </views:BackgroundImagePage>

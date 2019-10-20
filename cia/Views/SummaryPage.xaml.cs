@@ -20,15 +20,15 @@ namespace cia.Views
 
 		public SummaryPage (ShoppingCart cart, IEnumerable<SummaryCellViewModel> models)
 		{
-			InitializeComponent ();
             _cart = cart;
             CellModelList = models;
 
-            NavigationPage.SetHasBackButton(this, false);
+            //NavigationPage.SetHasBackButton(this, false);
             BindingContext = this;
             BackgroundImageSource = "patriotHacks.png";
             Title = "Receipt";
-
+            
+			InitializeComponent ();
         }
 
 
@@ -43,6 +43,10 @@ namespace cia.Views
         private void MainListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
 
+            var modelSender = (SummaryCellViewModel)e.SelectedItem;
+            //var page = new SummaryPage(modelSender.Cart, modelSender.ItemModels);
+            //await Navigation.PushAsync(new DreamNavigationPage(page));
+            ((ListView)sender).SelectedItem = null;
         }
 
         private void SummaryViewCell_OnBetterAlternativeButtonClicked(object sender, EventArgs e)

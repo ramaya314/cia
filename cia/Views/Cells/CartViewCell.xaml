@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="cia.Views.Cells.SummaryViewCell">
+             x:Class="cia.Views.Cells.CartViewCell">
     <ViewCell.View>
-        
+
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -50,7 +50,6 @@
 
                 <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" >
                     <Label Text="{Binding Name}" />
-                    <Label Text="{Binding TotalPrice}" />
                 </StackLayout>
             </StackLayout>
 
@@ -60,7 +59,7 @@
                          Grid.Column="2">
                 <Label Text="{Binding TotalPrice}" TextColor="DarkGreen" FontAttributes="Bold" />
             </StackLayout>
-            
+
         </Grid>
 
 

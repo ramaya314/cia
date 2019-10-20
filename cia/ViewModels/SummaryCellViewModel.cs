@@ -18,7 +18,8 @@ namespace cia.ViewModels
 
         public string Name => $"{Amount} x {Item.Name}";
 
-        public string TotalPrice => Convert.ToDecimal((Item.Price * Amount)).ToString("C2");
+        public decimal TotalPriceDecimal => Convert.ToDecimal((Item.Price * Amount));
+        public string TotalPrice => TotalPriceDecimal.ToString("C2");
 
         public float TotalCarbon => Item.Co2 * Amount;
     }
