@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using cia.Utils;
 using cia.DataStores;
 using cia.ViewModels;
+using cia.Views;
 using PCLStorage;
 
 namespace cia
@@ -23,7 +24,7 @@ namespace cia
             InitializeComponent();
 
             DependencyService.Register<ItemDataStore>();
-            MainPage = new MainPage();
+            MainPage = new DreamNavigationPage(new CartsPage());
         }
 
         protected override async void OnStart()
@@ -34,7 +35,7 @@ namespace cia
             Console.WriteLine("DB PAth: " + instance.DatabasePath);
 
             //await TestMyMethod();
-            await LoadTestSummaryPage();
+            //await LoadTestSummaryPage();
         }
 
         private async Task TestMyMethod()
@@ -59,7 +60,7 @@ namespace cia
             }
 
             var dummy = new SummaryPage(firstShoppingCart, models);
-            MainPage = new NavigationPage(dummy);
+            MainPage = new DreamNavigationPage(dummy);
         }
 
         private async Task LoadTestPicturePage()

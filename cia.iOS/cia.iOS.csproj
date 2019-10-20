@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Renderers\TransparentListViewRenderer.cs" />
     <None Include="Entitlements.plist" />
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -141,6 +142,12 @@
       <Project>{04529BAD-9B8C-4356-9335-010BE979BAD8}</Project>
       <Name>cia</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\patriotHacks.png" />
   </ItemGroup>
   <Import Project="..\Conditionals\Conditionals.projitems" Label="Shared" />
 </Project>
