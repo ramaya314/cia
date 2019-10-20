@@ -16,9 +16,9 @@ namespace cia.ViewModels
 
         public bool HasBetterAlternatives => Alternatives.Any(a => a.Co2 < Item.Co2);
 
-        public string Name => Item.Name;
+        public string Name => $"{Amount} x {Item.Name}";
 
-        public float TotalPrice => Item.Price * Amount;
+        public string TotalPrice => Convert.ToDecimal((Item.Price * Amount)).ToString("C2");
 
         public float TotalCarbon => Item.Co2 * Amount;
     }

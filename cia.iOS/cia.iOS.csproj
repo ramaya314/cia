@@ -142,5 +142,11 @@
       <Name>cia</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\cloud.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\patriotHacks.png" />
+  </ItemGroup>
   <Import Project="..\Conditionals\Conditionals.projitems" Label="Shared" />
 </Project>

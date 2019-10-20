@@ -7,47 +7,62 @@
         <Grid RowSpacing="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="50" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="40" />
             </Grid.ColumnDefinitions>
+
+
+            <StackLayout VerticalOptions="CenterAndExpand" 
+                         HorizontalOptions="CenterAndExpand"
+                         Grid.Column="0"
+                         Grid.Row="0">
+                <Image VerticalOptions="CenterAndExpand" 
+                       HorizontalOptions="CenterAndExpand"
+                       Source="cloud" />
+            </StackLayout>
+
+            <StackLayout VerticalOptions="CenterAndExpand" 
+                         HorizontalOptions="CenterAndExpand"
+                         Grid.Column="0"
+                         Padding="0, 12, 0, 0"
+                         Grid.Row="0">
+                <Label Text="{Binding TotalCarbon}"
+                       HorizontalOptions="CenterAndExpand"
+                       VerticalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+                       VerticalTextAlignment="Center"
+                       TextColor="White"/>
+            </StackLayout>
 
 
             <StackLayout x:Name="HeaderArea" 
                              Spacing="7"
                              Grid.Row="0"
-                             Grid.Column="0"
+                             Grid.Column="1"
                              VerticalOptions="Start"
                              HorizontalOptions="Fill" 
                              Orientation="Horizontal" >
-
-                <StackLayout VerticalOptions="Fill" 
-                        HorizontalOptions="Start" >
-                    <Label Text="{Binding TotalCarbon}" />
-                </StackLayout>
 
 
                 <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" >
                     <Label Text="{Binding Name}" />
                     <Label Text="{Binding TotalPrice}" />
                 </StackLayout>
-
-
-                <StackLayout VerticalOptions="CenterAndExpand" 
-                             HorizontalOptions="End"  >
-
-
-                </StackLayout>
-
-
-                <StackLayout VerticalOptions="CenterAndExpand" 
-                             HorizontalOptions="EndAndExpand"
-                             IsVisible="{Binding HasBetterAlternatives}">
-                    <Button Text="Replace me" Clicked="DoOnBetterAlternativeButtonClicked" />
-                </StackLayout>
             </StackLayout>
 
+
+            <StackLayout VerticalOptions="Fill" 
+                         HorizontalOptions="FillAndExpand"
+                         IsVisible="{Binding HasBetterAlternatives}"
+                         Grid.Row="0"
+                         Grid.Column="2">
+                <Button Text="Replace me" Clicked="DoOnBetterAlternativeButtonClicked" />
+            </StackLayout>
+            
         </Grid>
 
 

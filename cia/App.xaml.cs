@@ -59,7 +59,7 @@ namespace cia
             }
 
             var dummy = new SummaryPage(firstShoppingCart, models);
-            MainPage = new NavigationPage(dummy);
+            MainPage = new DreamNavigationPage(dummy);
         }
 
         private async Task LoadTestPicturePage()
