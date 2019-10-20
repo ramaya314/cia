@@ -26,5 +26,15 @@ namespace cia.DataStores
         {
             return await db.Table<Item>().Where(i => i.Equals(item)).FirstOrDefaultAsync();
         }
+
+
+        public async Task<IEnumerable<Item>> GetAlternativesForItem(Item item)
+        {
+            string query = "SELECT * FROM Item i " +
+                           "JOIN Alternative a ON a.RightId = i.Id " +
+                           $"WHERE a.LeftId = {item.Id}";
+            var results = await db.QueryAsync<Item>(query);
+            return results;
+        }
     }
 }

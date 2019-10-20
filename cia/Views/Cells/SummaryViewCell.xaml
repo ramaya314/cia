@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="cia.Views.Cells.SummaryViewCell">
+    <ViewCell.View>
+        
+        <Grid RowSpacing="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+
+            <StackLayout x:Name="HeaderArea" 
+                             Spacing="7"
+                             Grid.Row="0"
+                             Grid.Column="0"
+                             VerticalOptions="Start"
+                             HorizontalOptions="Fill" 
+                             Orientation="Horizontal" >
+
+                <StackLayout VerticalOptions="Fill" 
+                        HorizontalOptions="Start" >
+                    <Label Text="{Binding TotalCarbon}" />
+                </StackLayout>
+
+
+                <StackLayout VerticalOptions="Fill" HorizontalOptions="Fill" >
+                    <Label Text="{Binding Name}" />
+                    <Label Text="{Binding TotalPrice}" />
+                </StackLayout>
+
+
+                <StackLayout VerticalOptions="CenterAndExpand" 
+                             HorizontalOptions="End"  >
+
+
+                </StackLayout>
+
+
+                <StackLayout VerticalOptions="CenterAndExpand" 
+                             HorizontalOptions="EndAndExpand"
+                             IsVisible="{Binding HasBetterAlternatives}">
+                    <Button Text="Replace me" Clicked="DoOnBetterAlternativeButtonClicked" />
+                </StackLayout>
+            </StackLayout>
+
+        </Grid>
+
+
+    </ViewCell.View>
+</ViewCell>

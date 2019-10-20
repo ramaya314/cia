@@ -11,7 +11,8 @@ namespace cia.DataStores
 
         public override async Task<IEnumerable<ShoppingCart>> GetAllAsync()
         {
-            return await db.Table<ShoppingCart>().ToListAsync();
+            var res = await db.Table<ShoppingCart>().ToListAsync();
+            return res;
         }
 
         public override async Task<ShoppingCart> GetAsync(int id)

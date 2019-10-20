@@ -9,6 +9,7 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 using cia.Models;
+using cia.ViewModels;
 
 namespace cia.Views
 {
@@ -16,15 +17,34 @@ namespace cia.Views
 	public partial class SummaryPage : ContentPage
 	{
         ShoppingCart _cart;
-        IEnumerable<ShoppingCartItem> _cartItems;
 
-		public SummaryPage (ShoppingCart cart, IEnumerable<ShoppingCartItem> cartItems)
+		public SummaryPage (ShoppingCart cart, IEnumerable<SummaryCellViewModel> models)
 		{
 			InitializeComponent ();
             _cart = cart;
-            _cartItems = cartItems;
+            CellModelList = models;
 
             NavigationPage.SetHasBackButton(this, false);
+            BindingContext = this;
 		}
-	}
+
+
+        public IEnumerable<SummaryCellViewModel> CellModelList
+        {
+            get => (IEnumerable<SummaryCellViewModel>)GetValue(CellModelListProperty);
+            set => SetValue(CellModelListProperty, value);
+        }
+        public readonly BindableProperty CellModelListProperty =
+            BindableProperty.Create("CellModelList", typeof(IEnumerable<SummaryCellViewModel>), typeof(SummaryPage), null);
+
+        private void MainListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+
+        }
+
+        private void SummaryViewCell_OnBetterAlternativeButtonClicked(object sender, EventArgs e)
+        {
+
+        }
+    }
 }

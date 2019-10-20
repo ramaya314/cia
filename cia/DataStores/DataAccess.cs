@@ -76,7 +76,8 @@ namespace cia.DataStores
         static Type[] _schemaTypes = {
             typeof(Item),
             typeof(ShoppingCart),
-            typeof(ShoppingCartItem)
+            typeof(ShoppingCartItem),
+            typeof(Alternative)
         };
 
         public static Type[] SchemaTypes => _schemaTypes;

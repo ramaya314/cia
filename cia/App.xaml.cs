@@ -6,9 +6,11 @@ using Xamarin.Forms.Xaml;
 using cia.DataStores;
 using cia.Views;
 using System.Threading.Tasks;
+using System.Collections.Generic;
 
 using cia.Utils;
 using cia.DataStores;
+using cia.ViewModels;
 using PCLStorage;
 
 namespace cia
@@ -31,7 +33,8 @@ namespace cia
             var instance = DataAccessAsync.Instance;
             Console.WriteLine("DB PAth: " + instance.DatabasePath);
 
-            await TestMyMethod();
+            //await TestMyMethod();
+            await LoadTestSummaryPage();
         }
 
         private async Task TestMyMethod()
@@ -47,7 +50,15 @@ namespace cia
         private async Task LoadTestSummaryPage()
         {
             var firstShoppingCart = (await Warehouse.ShoppingCarts.GetAllAsync()).FirstOrDefault();
-            var dummy = new SummaryPage(firstShoppingCart, await firstShoppingCart.GetAllCartItems());
+            var cartItems = await firstShoppingCart.GetAllCartItems();
+
+            var models = new List<SummaryCellViewModel>();
+            foreach(var cartItem in cartItems)
+            {
+                models.Add(await cartItem.GetSummaryCellViewModel());
+            }
+
+            var dummy = new SummaryPage(firstShoppingCart, models);
             MainPage = new NavigationPage(dummy);
         }
 
