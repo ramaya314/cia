@@ -14,7 +14,7 @@ using cia.ViewModels;
 namespace cia.Views
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class SummaryPage : ContentPage
+	public partial class SummaryPage : BackgroundImagePage
 	{
         ShoppingCart _cart;
 
@@ -26,7 +26,10 @@ namespace cia.Views
 
             NavigationPage.SetHasBackButton(this, false);
             BindingContext = this;
-		}
+            BackgroundImageSource = "patriotHacks.png";
+            Title = "Receipt";
+
+        }
 
 
         public IEnumerable<SummaryCellViewModel> CellModelList

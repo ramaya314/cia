@@ -28,28 +28,16 @@
                         <ScrollView HorizontalOptions="FillAndExpand"
                                  VerticalOptions="FillAndExpand" >
                             <StackLayout Orientation="Vertical" 
-                                         Padding="15"
+                                         Padding="0"
                                          HorizontalOptions="FillAndExpand"
                                          VerticalOptions="FillAndExpand"
                                          BackgroundColor="Transparent">
-                                <Frame HorizontalOptions="FillAndExpand"
-                                       VerticalOptions="CenterAndExpand"
-                                       HasShadow="false"
-                                       CornerRadius="7" >
-                                    <StackLayout
-                                         HorizontalOptions="FillAndExpand"
-                                         VerticalOptions="FillAndExpand"
-                                         Padding="5">
 
-
-
-                                        <ContentPresenter x:Name="LoadingContentPresenter" 
+                                <ContentPresenter x:Name="LoadingContentPresenter" 
                                             VerticalOptions="FillAndExpand" 
                                             HorizontalOptions="FillAndExpand"
                                             BackgroundColor="Transparent"></ContentPresenter>
 
-                                    </StackLayout>
-                                </Frame>
                             </StackLayout>
                         </ScrollView>
                     </StackLayout>

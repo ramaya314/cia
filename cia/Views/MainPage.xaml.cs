@@ -19,7 +19,7 @@ namespace cia.Views
 
             var gamePage = new DreamNavigationPage(new PicturePage
             {
-                BackgroundImageSource = "patriotHacks",
+                BackgroundImageSource = "patriotHacks.png",
                 Title = "New Cart"
             });
             gamePage.Title = "New Cart";

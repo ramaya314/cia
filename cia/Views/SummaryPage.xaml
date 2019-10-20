@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:ViewCells="clr-namespace:cia.Views.Cells"
-             x:Class="cia.Views.SummaryPage">
-    <ContentPage.Content>
+<views:BackgroundImagePage xmlns="http://xamarin.com/schemas/2014/forms"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                         xmlns:ViewCells="clr-namespace:cia.Views.Cells"
+                         xmlns:views="clr-namespace:cia.Views"
+                         x:Class="cia.Views.SummaryPage">
+    <ContentView ControlTemplate="{StaticResource BackgroundImagePageTemplate}">
 
-        <Grid
+        <Grid BackgroundColor="Transparent"
                     VerticalOptions="FillAndExpand" 
                     HorizontalOptions="FillAndExpand">
             <Grid.RowDefinitions>
@@ -16,7 +17,7 @@
             </Grid.ColumnDefinitions>
 
 
-            <ListView x:Name="MainListview" 
+            <views:TransparentListView x:Name="MainListview" 
                         HasUnevenRows="true" 
                         ItemsSource="{Binding CellModelList}"
                         ItemSelected="MainListview_ItemSelected"
@@ -24,13 +25,13 @@
                         Grid.Row="0"
                         Grid.Column="0">
 
-                <ListView.ItemTemplate>
+                <views:TransparentListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCells:SummaryViewCell OnBetterAlternativeButtonClicked="SummaryViewCell_OnBetterAlternativeButtonClicked" />
                     </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                </views:TransparentListView.ItemTemplate>
+            </views:TransparentListView>
 
         </Grid>
-    </ContentPage.Content>
-</ContentPage>
+    </ContentView>
+</views:BackgroundImagePage>
