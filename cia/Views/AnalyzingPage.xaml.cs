@@ -9,6 +9,7 @@ using Xamarin.Forms.Xaml;
 
 using cia.Models;
 using cia.DataStores;
+using cia.ViewModels;
 
 namespace cia.Views
 {
@@ -35,12 +36,15 @@ namespace cia.Views
             base.OnAppearing();
 
             var cartItems = await GetItemsFromImage(_cart.ReceiptImageFilePath);
-            foreach(var cartItem in cartItems)
+
+            var models = new List<SummaryCellViewModel>();
+            foreach (var cartItem in cartItems)
             {
                 await Warehouse.ShoppingCartItems.AddAsync(cartItem);
+                models.Add(await cartItem.GetSummaryCellViewModel());
             }
 
-            var summaryPage = new SummaryPage(_cart, cartItems);
+            var summaryPage = new SummaryPage(_cart, models);
             await Navigation.PushAsync(summaryPage);
         }
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace cia.Models
 {
@@ -9,5 +11,7 @@ namespace cia.Models
         public string Description { get; set; }
         public float Co2 { get; set; }
         public float Price { get; set; }
+
+
     }
 }
