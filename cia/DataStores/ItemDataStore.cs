@@ -22,6 +22,11 @@ namespace cia.DataStores
             return await db.Table<Item>().Where(item => item.Id == id).FirstOrDefaultAsync();
         }
 
+        public async Task<Item> GetByNameAsync(string name)
+        {
+            return await db.Table<Item>().Where(item => item.Name == name).FirstOrDefaultAsync();
+        }
+
         public override async Task<Item> GetMatchingItem(Item item)
         {
             return await db.Table<Item>().Where(i => i.Equals(item)).FirstOrDefaultAsync();

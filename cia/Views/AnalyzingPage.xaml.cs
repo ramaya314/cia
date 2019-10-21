@@ -7,6 +7,8 @@ using System.Net.Http;
 using System.IO;
 using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
+using System.Collections;
+
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -19,6 +21,7 @@ using cia.DataStores;
 using cia.ViewModels;
 using cia.Utils;
 using PCLStorage;
+
 
 namespace cia.Views
 {
@@ -93,8 +96,89 @@ namespace cia.Views
                         JToken firstResult = results.First();
                         JToken parsedText = firstResult.SelectToken("ParsedText");
                         string textContent = parsedText.Value<string>();
+                        string[] parse = textContent.Split(new string[] { "\r\n" }, StringSplitOptions.None);
 
-                        Console.WriteLine(textContent);
+                        //Gathering Pointers
+                        int taxLine= 0;
+                        int topPointer = 0;
+                        for(var i = 0; i < parse.Length; i++)
+                        {
+                            if(parse[i].Equals("TAX"))
+                            {
+                                taxLine = i;
+                            }
+
+                            if (parse[i].Equals("02155"))
+                            {
+                                topPointer= i;
+                            }
+
+                        }
+
+                        // Traversing for names
+                         ArrayList ReceiptItems = new ArrayList();
+                        for (var i = topPointer; i==taxLine; i++){
+
+                            ReceiptItems.Add(parse[i]);
+
+                        }
+
+                        int topPointerPrice = 0;
+                        int bottomPointerPrice = 0;
+                        for (var i = 0; i < parse.Length; i++)
+                        {
+                            if (parse[i].Equals("9166"))
+                            {
+                                topPointerPrice = i;
+                            }
+
+                            if (parse[i].Equals("93.62"))
+                            {
+                                bottomPointerPrice = i;
+                            }
+
+                        }
+
+                        //Traversing for Price
+                        ArrayList Price = new ArrayList();
+                        for (var i = bottomPointerPrice; i == topPointerPrice; i++)
+                        {
+
+                            Price.Add(parse[i]);
+
+                        }
+
+                        object[] receiptsArray = ReceiptItems.ToArray();
+                        object[] priceArray = Price.ToArray();
+
+                      
+                            Random random = new Random();
+                        
+
+                        foreach (string item in receiptsArray)
+                        {
+                            var existingItem = await Warehouse.Items.GetByNameAsync(item);
+                            if(existingItem == null)
+                            {
+                                existingItem = new Item
+                                {
+                                    Name = item,
+                                    Price = (float)random.Next(0, 10), //0.2 and 10
+                                    Co2 = (float)random.Next(0, 1), //0.01 and 1
+                                };
+                                existingItem.Id = await Warehouse.Items.AddAsync(existingItem);
+                            }
+                            var cartItem = new ShoppingCartItem
+                            {
+                                ShoppingCartId = _cart.Id,
+                                ItemId = existingItem.Id
+                            };
+                            cartItem.Id = await Warehouse.ShoppingCartItems.AddAsync(cartItem);
+                            cartItems.Add(cartItem);
+                        }
+
+
+
                     }
                 }
             }
