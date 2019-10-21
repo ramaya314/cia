@@ -40,13 +40,23 @@ namespace cia.Views
         public readonly BindableProperty CellModelListProperty =
             BindableProperty.Create("CellModelList", typeof(IEnumerable<SummaryCellViewModel>), typeof(SummaryPage), null);
 
-        private void MainListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
+        private async void MainListview_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-
-            var modelSender = (SummaryCellViewModel)e.SelectedItem;
+            await Task.Yield();
+            await Task.Delay(100);
+            var modelSender = (SummaryCellViewModel)((ListView)sender).SelectedItem;
             //var page = new SummaryPage(modelSender.Cart, modelSender.ItemModels);
-            //await Navigation.PushAsync(new DreamNavigationPage(page));
-            ((ListView)sender).SelectedItem = null;
+            //((ListView)sender).SelectedItem = null;
+            await Task.Yield();
+            await Task.Delay(200);
+            try
+            {
+                //await Navigation.PushAsync(page);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         private void SummaryViewCell_OnBetterAlternativeButtonClicked(object sender, EventArgs e)
